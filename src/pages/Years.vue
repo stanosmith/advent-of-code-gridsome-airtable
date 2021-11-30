@@ -3,7 +3,7 @@
   <Layout>
     <div>
       <div v-for="(edge, index) in $page.years.edges" :key="edge.node.id">
-        <div>{{edge.node.name}}</div>
+        <div><g-link :to="'years/'+edge.node.id">{{edge.node.name}}</g-link></div>
       </div>
     </div>
   </Layout>
@@ -11,7 +11,7 @@
 
 <page-query>
   query Years {
-    years: allYear (){
+    years: allYear (sort: { by: "name", order: ASC }){
       edges {
         node{
           id
@@ -24,7 +24,7 @@
 
 <script>
 import Layout from "~/layouts/Default.vue";
-import EventCard from "~/components/EventCard.vue";
+import EventCard from "~/components/DayCard.vue";
 export default {
   components: {
     Layout,

@@ -13,7 +13,7 @@
         We're glad you're here and interested in learning more about our offerings in the community! 
         <br/>
         <br/>
-        You can check out the full list of available events on our <g-link class="link--red" to="/events">Events</g-link> page!
+        <!--You can check out the full list of available events on our <g-link class="link&#45;&#45;red" to="/events">Events</g-link> page!-->
       </p>
     </section>
 

@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: "Airtable Starter",
+  siteName: "Stan’s Advent of Code",
   plugins: [
     {
       use: "@gridsome/source-airtable",
@@ -22,18 +22,19 @@ module.exports = {
             select: {}, //optional
             links: [], //optional
           },
-          // {
-          //   name: "Parties",
-          //   typeName: "Parties", //required - needs to match template name
-          //   select: {}, //optional
-          //   links: [], //optional
-          // },
+          {
+            name: "Days",
+            typeName: "Day", //required - needs to match template name
+            select: {}, //optional
+            links: [], //optional
+          },
         ],
       },
     },
   ],
   templates: {
-    Event: "/events/:id", //optional
+    Day: "/days/:id", //optional
+    Year: "/years/:id", //optional
     // Parties: "/parties/:id", //optional
   },
 };

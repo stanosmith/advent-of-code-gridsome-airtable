@@ -1,55 +1,17 @@
 <template>
-  <!-- This is the Event Details View Page-->
+  <!-- This is the Year Details View Page-->
   <Layout>
     <h1 class="handwriting">
       <span>
-        {{ $page.event.name }}
+        {{ $page.year.name }}
       </span>
     </h1>
-    <!-- <span class="date">{{formattedDate}}</span> -->
-    <time class="date--fun">{{ formattedDate }}</time>
     <section>
-      <h2>
-        <span class="underline--blue">
-          Details:
-        </span>
-      </h2>
-      <p class="paragraph--whitespace">{{ $page.event.notes }}</p>
-    </section>
-    <section>
-      <h2>
-        <span class="underline--yellow">
-          Attachments:
-        </span>
-      </h2>
-      <div class="attachments">
-        <div
-          v-for="(file, index) in $page.event.attachments"
-          :key="file.id"
-          class="attachment--item"
-          :style="{
-            border:
-              '3px solid ' + attachmentColors[index % attachmentColors.length],
-          }"
-        >
-          <h3>
-            {{ file.filename }}
-          </h3>
-          <a :href="file.url" target="_blank">
-            <button
-              class="file--button-download handwriting"
-              tabindex="-1"
-              :style="{
-                borderBottom:
-                  '3px solid ' +
-                  attachmentColors[index % attachmentColors.length],
-              }"
-            >
-              Download!
-            </button>
-          </a>
-        </div>
-      </div>
+      <ol>
+        <li v-for="(day) in $page.year.days" :key="day">
+          {{day}}
+        </li>
+      </ol>
     </section>
   </Layout>
 </template>
@@ -73,52 +35,45 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.$page.event.name,
+      title: this.$page.year.name,
     };
   },
   computed: {
     // The variety of dates is intended as an example of ways to use Moment to get different date formats.
     // Unused computed values should be removed.
-    formattedStart: function() {
-      return moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A");
-    },
-    formattedEnd: function() {
-      return moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A");
-    },
-    formattedDate: function() {
-      const start = moment(this.$page.event.startDate).format("MM/DD/YYYY");
-      const end = moment(this.$page.event.endDate).format("MM/DD/YYYY");
-      if (start == end) {
-        return (
-          moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") +
-          " - " +
-          moment(this.$page.event.endDate).format("h:mm A")
-        );
-      } else {
-        return (
-          moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") +
-          " - " +
-          moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A")
-        );
-      }
-    },
+    // formattedStart: function() {
+    //   return moment(this.$page.year.startDate).format("MM/DD/YYYY h:mm A");
+    // },
+    // formattedEnd: function() {
+    //   return moment(this.$page.year.endDate).format("MM/DD/YYYY h:mm A");
+    // },
+    // formattedDate: function() {
+    //   const start = moment(this.$page.year.startDate).format("MM/DD/YYYY");
+    //   const end = moment(this.$page.year.endDate).format("MM/DD/YYYY");
+    //   if (start == end) {
+    //     return (
+    //       moment(this.$page.year.startDate).format("MM/DD/YYYY h:mm A") +
+    //       " - " +
+    //       moment(this.$page.year.endDate).format("h:mm A")
+    //     );
+    //   } else {
+    //     return (
+    //       moment(this.$page.year.startDate).format("MM/DD/YYYY h:mm A") +
+    //       " - " +
+    //       moment(this.$page.year.endDate).format("MM/DD/YYYY h:mm A")
+    //     );
+    //   }
+    // },
   },
 };
 </script>
 
 <page-query>
-query Event ($id: ID!) {
-  event: event(id: $id) {
+query Year ($id: ID!) {
+  year: year(id: $id) {
     id
     name
-    startDate
-    endDate
-    notes
-    attachments {
-      id
-      url
-      filename
-    }
+    days
   }
 }
 </page-query>
