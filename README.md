@@ -1,7 +1,5 @@
 # Airtable starter for Gridsome
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/66526f3f-455e-4ee4-b05e-3cf37c607921/deploy-status)](https://app.netlify.com/sites/gridsomeairtable/deploys)
-
 This starter is meant to act as a starting point/example for connecting [Gridsome](https://gridsome.org/) with [Airtable](https://airtable.com/).
 
 _Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)_
@@ -97,7 +95,3 @@ A list of files where the starter uses queries to make updating easier (all from
 This is what my Airtable Base looks like:
 
 !["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.PNG)
-
-# Deploy with Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/12vanblart/gridsome-airtable-starter)
