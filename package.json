@@ -4,11 +4,17 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@gridsome/source-airtable": "0.2.0",
     "gridsome": "^0.7.17",
     "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.0",
+    "prettier": "2.5.0",
+    "pretty-quick": "^3.1.2"
   }
 }
